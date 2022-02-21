@@ -1,2 +1,6 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h2>test cloudniary :</h2>
+<%# https://res.cloudinary.com/dngfqo2nf/image/upload/v1645306679/production/stalker_image_vqabvz.jpg %>
+<%= cl_image_tag("production/stalker_image_vqabvz.jpg",
+      width: 400, height: 300, crop: :fill) %>
