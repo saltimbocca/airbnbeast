@@ -1,4 +1,36 @@
 // Import your components CSS files here.
-@import "alert";
-@import "avatar";
-@import "navbar";
+
+.brand-logo{
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: $white;
+}
+
+.brand-logo:hover {
+  color: white;
+}
+
+.site-content {
+  display: flex;
+  height: calc(100vh - 120px);
+}
+
+.beasts-list {
+  padding-top: 64px;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.map {
+  position: fixed;
+  bottom: 0;
+  height: 100%;
+  z-index: -1000;
+  right: 0;
+  background-color: #e6e5ec;
+}
