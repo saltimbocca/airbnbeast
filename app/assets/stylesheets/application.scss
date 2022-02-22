@@ -10,6 +10,7 @@
 
 // Your CSS partials
 @import "components/navbar";
+@import "components/cards";
 @import "components/buttons";
 @import "components/searchbars";
 @import "components/index";
@@ -31,10 +32,20 @@
   display: flex;
   height: calc(100vh - 120px);
 }
-.p1 {
-  margin: 0;
+.beasts-list {
+  padding-top: 64px;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 
-.p2 {
-  background-color: $gray;
+.map {
+  position: fixed;
+  bottom: 0;
+  height: 100%;
+  z-index: -1000;
+  right: 0;
+  background-color: #e6e5ec;
 }
