@@ -1,5 +1,5 @@
 class BeastsController < ApplicationController
-  before_action :set_beast, only: [ :show, :destroy ]
+  before_action :set_beast, only: [ :show, :destroy, :edit, :update ]
 
   def new
     @beast = Beast.new
@@ -23,6 +23,14 @@ class BeastsController < ApplicationController
 
   def show
     @beast
+  end
+
+  def edit
+  end
+
+  def update
+    @beast.update(beast_params)
+    redirect_to beast_path(@beast)
   end
 
   def destroy

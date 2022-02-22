@@ -1,0 +1,9 @@
+<%= simple_form_for(beast) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :gender, collection: %w(male female) %>
+  <%= f.input :species, collection: %w(Quadruped Fish Bird Mollusc Insect Monkey) %>
+  <%= f.input :bio %>
+  <%= f.input :date_of_birth, html5: true %>
+  <%= f.input :photo %>
+  <%= f.submit %>
+<% end %>
