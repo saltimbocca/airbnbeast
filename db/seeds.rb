@@ -3,5 +3,18 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts 'starting seed'
+User.destroy_all
+Beast.destroy_all
+Rental.destroy_all
+puts 'previous seed destroyed'
+puts 'creating new seed'
+user1 = User.new(email: 'exemple@gmail.com', password: '123456')
+user1.save!
+puts 'user done!'
+beast1 = Beast.create(user: user1)
+beast1.save!
+puts 'beast done!'
+rental1 = Rental.create(user: user1, beast: beast1, start_date: Date.today, end_date: Date.today + 1, status: 'Confirmed')
+rental1.save!
+puts 'rental done!'
