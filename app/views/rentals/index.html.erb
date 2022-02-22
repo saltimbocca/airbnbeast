@@ -1,0 +1,7 @@
+<h1>My rentals</h1>
+<ul>
+  <% @rentals.each do |rental| %>
+    <li><%= rental.status %></li>
+  <% end %>
+</ul>
+<p><%= link_to "Add a rental", new_user_rental_path(@user)%></p>
