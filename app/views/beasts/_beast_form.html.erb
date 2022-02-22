@@ -4,6 +4,6 @@
   <%= f.input :species, collection: %w(Quadruped Fish Bird Mollusc Insect Monkey) %>
   <%= f.input :bio %>
   <%= f.input :date_of_birth, html5: true %>
-  <%= f.input :photo %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true} %>
   <%= f.submit %>
 <% end %>

@@ -41,7 +41,7 @@ class BeastsController < ApplicationController
   private
 
   def beast_params
-    params.require(:beast).permit(:name, :gender, :date_of_birth, :species, :bio, :photo)
+    params.require(:beast).permit(:name, :gender, :date_of_birth, :species, :bio, photos: [])
   end
 
   def set_beast

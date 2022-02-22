@@ -13,4 +13,9 @@
   <%= @beast.bio %>
 </p>
 
+<h3>how to i look ?</h3>
+<% @beast.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
+<% end %>
+
 <h6><%= link_to 'back to list', beasts_path %></h6>
