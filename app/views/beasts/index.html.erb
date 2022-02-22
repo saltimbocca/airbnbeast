@@ -2,6 +2,6 @@
 
 <% @beasts.each do |beast| %>
   <ul>
-    <li><%= beast.name %></li>
+    <li><%= link_to beast.name, beast_path(beast) %></li>
   </ul>
 <% end %>

@@ -1,4 +1,5 @@
 <h1><%= @beast.name %></h1>
+<h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %></h6>
 <h2>
 <span>
 <%= @beast.species %> -
