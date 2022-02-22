@@ -1,12 +1,18 @@
-.navbar-lewagon {
+.navbar-wrapper {
+  position: relative;
+  min-height: 120px;
+
+  background-color: $black;
+}
+
+.top-nav {
+  display: flex;
   justify-content: space-between;
-  background: white;
+  background-color: black
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
