@@ -1,10 +1,14 @@
 <div class="sticky-navbar">
   <div class="navbar-wrapper px-5 py-3">
 
-    <nav class="navbar">
-      <a href="/" class="brand-logo">airbnbeast</a>
-      <a href="#" class="btn btn-navbar">Sign Up</a>
-    </nav>
+      <nav class="navbar">
+        <a href="/" class="brand-logo">airbnbeast</a>
+        <% if current_user %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
+        <% elsif !current_user %>
+          <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
+        <% end %>
+      </nav>
 
     <div class="search-wrapper">
       <div class="searchbar py-3 ps-5 pe-3 w-100">
