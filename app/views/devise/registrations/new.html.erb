@@ -1,0 +1,59 @@
+<div class="form-wrapper">
+
+  <!-- <h2>Sign up</h2> -->
+  <p>Devenez un bylower !</p>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+
+      <% if resource_name != :retailer %>
+
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    placeholder: 'prénom',
+                    input_html: { autocomplete: "first name" }%>
+
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    placeholder: 'nom',
+                    input_html: { autocomplete: "last name" }%>
+
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true,
+                    placeholder: 'addresse',
+                    input_html: { autocomplete: "Address" }%>
+
+      <% end %>
+      <!-- GLOBAL -->
+
+      <%= f.input :email,
+                  required: true,
+                  placeholder: 'email',
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  placeholder: ("password (#{@minimum_password_length} characters minimum)" if @minimum_password_length),
+                  # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  placeholder: 'confirm your password',
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  <% end %>
+
+  <div class="form-link">
+    <%= render "devise/shared/links"%>
+  </div>
+
+</div>

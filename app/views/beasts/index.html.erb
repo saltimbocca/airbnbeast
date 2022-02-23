@@ -5,4 +5,12 @@
     <li><%= link_to beast.name, beast_path(beast) %></li>
   </ul>
 <% end %>
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <h6><%= link_to 'back home', root_path %></h6>
