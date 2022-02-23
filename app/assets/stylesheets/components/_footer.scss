@@ -1,0 +1,25 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $black;
+  min-height: 380px;
+
+  padding: 60px 0 20px;
+  bottom: 0px;
+
+  text-align: center;
+  color: $white;
+
+  p {
+    font-style: normal;
+    font-size: 13px;
+    line-height: 22px;
+    opacity: 0.5;
+  }
+
+  .btn-default {
+    width: 220px;
+  }
+}
