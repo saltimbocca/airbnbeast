@@ -15,10 +15,61 @@
 @import "components/searchbars";
 @import "components/headers";
 @import "components/index";
+@import "components/footer";
 @import "pages/index";
 @import "pages/home";
 
 .header-card-wrapper {
   position: absolute;
   bottom: 0
+}
+
+.card-list {
+  display: flex;
+  padding: 0;
+
+  overflow-x: scroll;
+}
+
+.overview-section {
+  padding: 20px 40px;
+ .section-title {
+   font-size: 40px;
+ }
+}
+
+.asking-section {
+  .img-placeholder {
+    position: relative;
+    border-radius: 10px;
+    min-height: 600px;
+
+    background-image: url('background-main-card');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content-wrapper {
+    position: absolute;
+
+    width: 822px;
+    height: 268px;
+    left: 50px;
+    bottom: 110px;
+  }
+
+  h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 66px;
+  line-height: 76px;
+  /* or 115% */
+
+  display: flex;
+  align-items: center;
+
+  color: #FFFFFF;
+
+  }
 }
