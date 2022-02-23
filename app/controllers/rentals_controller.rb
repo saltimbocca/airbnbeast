@@ -18,7 +18,7 @@ class RentalsController < ApplicationController
     @rental.beast = @beast
     @rental.user = current_user
     if @rental.save
-      redirect_to beast_path(@beast)
+      redirect_to dashboard_path
     else
       render 'beasts/show'
     end
