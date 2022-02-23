@@ -41,7 +41,7 @@
       <% @beasts.each do |beast| %>
         <%= link_to beast_path(beast) do %>
           <div class="beast-card card my-4 d-flex flex-row">
-            <img class="img-placeholder" style="background-image: url(<%=beast.photos%>)">
+            <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
             <div class="card-infos ms-4 d-flex justify-content-between flex-column">
               <div class="top-card">
                 <h6><%= beast.species %></h6>
