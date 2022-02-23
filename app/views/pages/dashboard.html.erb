@@ -2,7 +2,7 @@
 
 <% @rentals.each do |rental| %>
   <div class="beast-card card my-4 d-flex flex-row">
-    <img class="img-placeholder" style="background-image: url(<%=rental.beast.photos.first%>)">
+    <%= cl_image_tag rental.beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
     <div class="card-infos ms-4 d-flex justify-content-between flex-column">
       <div class="top-card">
         <h6><%= rental.beast.species %></h6>
