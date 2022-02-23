@@ -4,5 +4,5 @@ class Beast < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many_attached :photos
   validates :species, inclusion: { in: %w(Quadruped Fish Bird Mollusc Insect Monkey) }
-  validates :date_of_birth, :gender, :name, :photos, presence: true
+  validates :date_of_birth, :gender, :name, presence: true
 end
