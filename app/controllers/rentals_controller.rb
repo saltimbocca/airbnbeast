@@ -10,7 +10,6 @@ class RentalsController < ApplicationController
   end
 
   def new
-    @rental = Rental.new
   end
 
   def create
@@ -18,7 +17,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.beast = @beast
     if @rental.save
-      redirect_to list_path(@beast)
+      redirect_to beast_path(@beast)
     else
       render 'beasts/show'
     end

@@ -19,3 +19,14 @@
 <% end %>
 
 <h6><%= link_to 'back to list', beasts_path %></h6>
+
+<div class="container" id = 'form_rental'>
+  <h1  class = "text-center btn-btn-primary" >Book <%= @beast.name %></h1>
+  <div class = 'col'>
+    <%= simple_form_for [@beast, @rental] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

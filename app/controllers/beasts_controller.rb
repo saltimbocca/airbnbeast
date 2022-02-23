@@ -22,7 +22,8 @@ class BeastsController < ApplicationController
   end
 
   def show
-    @beast
+    @rental = Rental.new
+    raise
   end
 
   def edit
