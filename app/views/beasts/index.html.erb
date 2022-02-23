@@ -48,14 +48,14 @@
             <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
             <div class="card-infos ms-4 d-flex justify-content-between flex-column">
               <div class="top-card">
-                <h6><%= beast.species %></h6>
-                <h3><%= beast.bio %></h3>
+                <h6>Species: <%= beast.species %> - Owner: <%= beast.user.first_name.capitalize %></h6>
+                <h3><%= beast.bio.capitalize %></h3>
               </div>
 
               <div class="middle-card">
                 <p>Name: <%= beast.name %></p>
                 <p>Date of birth: <%=beast.date_of_birth %></p>
-                <p>Location: <%= beast.user.address %></p>
+                <p>Paris, France</p>
               </div>
 
               <div class="reviews d-flex align-items-center">
