@@ -12,7 +12,6 @@ class BeastsController < ApplicationController
     if @beast.save!
       redirect_to beasts_path(@beast)
     else
-      raise
       render :new
     end
   end
@@ -23,7 +22,6 @@ class BeastsController < ApplicationController
 
   def show
     @rental = Rental.new
-    raise
   end
 
   def edit

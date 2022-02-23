@@ -3,5 +3,5 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :beast
   validates :start_date, :end_date, presence: true
-  validates :status, inclusion: { in: STATUS }
+  # validates :status, inclusion: { in: STATUS }
 end
