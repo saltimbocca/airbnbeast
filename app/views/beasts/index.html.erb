@@ -1,0 +1,8 @@
+<h1>Beast views !</h1>
+
+<% @beasts.each do |beast| %>
+  <ul>
+    <li><%= link_to beast.name, beast_path(beast) %></li>
+  </ul>
+<% end %>
+<h6><%= link_to 'back home', root_path %></h6>

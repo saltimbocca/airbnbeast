@@ -1,0 +1,31 @@
+.btn-navbar {
+  font-size: 12px;
+  font-weight: 500;
+  color: $black;
+
+  border-radius: 100px;
+  background-color: $white;
+}
+
+.btn-default {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 24px;
+  color: $black;
+
+  border-radius: 100px;
+  background-color: $white;
+}
+
+.rounded-green-btn {
+  width: 54px;
+  height: 54px;
+
+  border-radius: 50%;
+
+  background-color: $green;
+
+  i {
+    color: $white;
+  }
+}

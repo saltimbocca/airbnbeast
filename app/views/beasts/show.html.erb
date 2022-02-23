@@ -1,0 +1,32 @@
+<h1><%= @beast.name %></h1>
+<h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %></h6>
+<h6><%= link_to 'Edit', edit_beast_path(@beast) %></h6>
+<h2>
+<span>
+<%= @beast.species %> -
+</span>
+<span>
+<%= @beast.gender %>
+</span>
+</h2>
+<p>
+  <%= @beast.bio %>
+</p>
+
+<h3>how to i look ?</h3>
+<% @beast.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
+<% end %>
+
+<h6><%= link_to 'back to list', beasts_path %></h6>
+
+<div class="container" id = 'form_rental'>
+  <h1  class = "text-center btn-btn-primary" >Book <%= @beast.name %></h1>
+  <div class = 'col'>
+    <%= simple_form_for [@beast, @rental] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
