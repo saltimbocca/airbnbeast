@@ -12,17 +12,24 @@ class BeastsController < ApplicationController
     if @beast.save!
       redirect_to beasts_path(@beast)
     else
-      raise
       render :new
     end
   end
 
   def index
     @beasts = Beast.all
+    @markers = @beasts.map do |beast|
+      {
+        lat: beast.user.geocode[0],
+        lng: beast.user.geocode[1],
+        info_window: render_to_string(partial: "info_window", locals: { beast: beast }),
+        image_url: helpers.asset_url("https://res.cloudinary.com/dngfqo2nf/image/upload/v1645651388/IconesWeb/icone-map-vert_hrn1un.png")
+      }
+    end
   end
 
   def show
-    @beast
+    @rental = Rental.new
   end
 
   def edit

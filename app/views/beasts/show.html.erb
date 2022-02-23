@@ -1,6 +1,6 @@
 <h1><%= @beast.name %></h1>
-<h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %></h6>
-<h6><%= link_to 'Edit', edit_beast_path(@beast) %></h6>
+<%# <h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %>
+<%# <h6><%= link_to 'Edit', edit_beast_path(@beast) %>
 <h2>
 <span>
 <%= @beast.species %> -
@@ -17,5 +17,16 @@
 <% @beast.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
 <% end %>
-
 <h6><%= link_to 'back to list', beasts_path %></h6>
+<%# <% raise %> %>
+
+<div class="container" id = 'form_rental'>
+  <h1  class = "text-center btn-btn-primary" >Book <%= @beast.name %></h1>
+  <div class = 'col'>
+    <%= simple_form_for [@beast, @rental] do |f| %>
+      <%= f.input :start_date, html5: true %>
+      <%= f.input :end_date, html5: true %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
