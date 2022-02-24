@@ -73,10 +73,11 @@
 
     <hr>
   </div>
-<div class="col-4 ms-5 map"
+
+<div
+  class="col-4 ms-5"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>
