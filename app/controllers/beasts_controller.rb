@@ -18,6 +18,11 @@ class BeastsController < ApplicationController
 
   def index
     @beasts = Beast.all
+    if params[:query].present?
+      @beasts = Beast.global_search(params[:query])
+    else
+      @beasts = Beast.all
+    end
     @markers = @beasts.map do |beast|
       {
         lat: beast.user.latitude,

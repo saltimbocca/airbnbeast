@@ -30,3 +30,12 @@
     color: $gray;
   }
 }
+
+///////////////////////
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: transparent;
+  font-size: 13px;
+  padding: 0px;
+  margin: 0px;
+}
