@@ -1,6 +1,7 @@
 <div class="sticky-navbar">
   <div class="navbar-wrapper px-5 py-3">
 
+
       <nav class="navbar">
         <a href="/" class="brand-logo">airbnbeast</a>
         <% if current_user %>
@@ -72,5 +73,11 @@
 
     <hr>
   </div>
-  <div class="col-4 ms-5 map"></div>
+
+<div
+  class="col-4 ms-5"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 </div>

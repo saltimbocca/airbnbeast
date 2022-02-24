@@ -18,6 +18,14 @@ class BeastsController < ApplicationController
 
   def index
     @beasts = Beast.all
+    @markers = @beasts.map do |beast|
+      {
+        lat: beast.user.latitude,
+        lng: beast.user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { beast: beast }),
+        image_url: helpers.asset_url("https://res.cloudinary.com/dngfqo2nf/image/upload/v1645651388/IconesWeb/icone-map-vert_hrn1un.png")
+      }
+    end
   end
 
   def show
