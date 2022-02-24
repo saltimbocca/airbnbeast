@@ -1,8 +1,10 @@
 <div class="sticky-navbar">
   <div class="navbar-wrapper px-5 py-3">
 
+
       <nav class="navbar">
-        <a href="/" class="brand-logo">airbnbeast</a>
+        <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
+
         <% if current_user %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
         <% elsif !current_user %>
@@ -38,24 +40,24 @@
 </div>
 
 <div class="site-content">
-  <div class="beasts-list ps-5 pe-3 col-8">
+  <div class="beasts-list ps-5 pe-5 col-7">
 
     <h3>Ranking by relevance</h3>
 
       <% @beasts.each do |beast| %>
         <%= link_to beast_path(beast) do %>
           <div class="beast-card card my-4 d-flex flex-row">
-            <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
+            <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image", crop: :fill %>
             <div class="card-infos ms-4 d-flex justify-content-between flex-column">
               <div class="top-card">
-                <h6><%= beast.species %></h6>
-                <h3><%= beast.bio %></h3>
+                <h6>Species: <%= beast.species %> - Owner: <%= beast.user.first_name.capitalize %></h6>
+                <h3><%= beast.bio.capitalize %></h3>
               </div>
 
               <div class="middle-card">
                 <p>Name: <%= beast.name %></p>
                 <p>Date of birth: <%=beast.date_of_birth %></p>
-                <p>Location: <%= beast.user.address %></p>
+                <p>Paris, France</p>
               </div>
 
               <div class="reviews d-flex align-items-center">
@@ -67,10 +69,16 @@
 
             </div>
           </div>
+          <hr>
         <% end %>
       <%end %>
 
     <hr>
   </div>
-  <div class="col-4 ms-5 map"></div>
+
+<div
+  class="map col-5 ms-5"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

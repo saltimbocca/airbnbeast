@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
 @import "components/navbar";
@@ -15,6 +16,7 @@
 @import "components/searchbars";
 @import "components/headers";
 @import "components/index";
+@import "components/show";
 @import "components/footer";
 @import "pages/index";
 @import "pages/home";
@@ -73,4 +75,8 @@
   color: #FFFFFF;
 
   }
+}
+
+a {
+  text-decoration: none;
 }

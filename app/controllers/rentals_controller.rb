@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: :show
+  before_action :set_user
 
   def index
     @rentals = Rental.where(user_id: current_user.id)
@@ -7,6 +8,7 @@ class RentalsController < ApplicationController
   end
 
   def show
+    @user = current_user
   end
 
   def new
@@ -16,9 +18,9 @@ class RentalsController < ApplicationController
     @beast = Beast.find(params[:beast_id])
     @rental = Rental.new(rental_params)
     @rental.beast = @beast
-    @rental.user = current_user
+    @rental.user = @user
     if @rental.save
-      redirect_to beast_path(@beast)
+      redirect_to dashboard_path
     else
       render 'beasts/show'
     end
@@ -28,6 +30,10 @@ class RentalsController < ApplicationController
 
   def set_rental
     @rental = Rental.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
   def rental_params
