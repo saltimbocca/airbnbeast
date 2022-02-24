@@ -5,11 +5,7 @@
 
       <nav class="navbar">
         <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
-        <% if current_user %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
-        <% elsif !current_user %>
-          <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
-        <% end %>
+        <%= render "pages/dropdown_user", user: @user %>
       </nav>
 
       <div class="search-wrapper">
@@ -20,6 +16,7 @@
               params[:query],
               placeholder: "Crocodile"
             %>
+            
           </div>
           <div class='form-control border-0 border-right search-items pe-4 border-end'>
             <%= label_tag 'Start date' %>

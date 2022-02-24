@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+
+  <div class="dropdown">
+    <button class="btn btn-dropdown  dropstart" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <span><%= user.first_name %></span> <span class="me-2"><%= user.last_name %></span>
+
+      <% if @user.photo %>
+      <%= cl_image_tag user.photo %>
+      <% else %>
+
+      <%= cl_image_tag("https://res.cloudinary.com/dngfqo2nf/image/upload/v1645628559/production/uw8wjwy92higg46wkv53w2m49vyl.jpg", :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar") %>
+      <% end %>
+
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <%= link_to "log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+        <%= link_to "my dashboard", "/dashboard", method: :delete, class:"dropdown-item" %>
+    </ul>
+  </div>
+  </div>
+
+<% else %>
+  <%= link_to "log in", new_user_session_path, class:"no-avatar" %>
+
+<% end %>
