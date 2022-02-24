@@ -1,12 +1,12 @@
 class BeastsController < ApplicationController
   before_action :set_beast, only: [ :show, :destroy, :edit, :update ]
+  before_action :set_user
 
   def new
     @beast = Beast.new
   end
 
   def create
-    @user = current_user
     @beast = Beast.new(beast_params)
     @beast.user_id = @user.id
     if @beast.save!
@@ -58,6 +58,10 @@ class BeastsController < ApplicationController
 
   def set_beast
     @beast = Beast.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 
 end

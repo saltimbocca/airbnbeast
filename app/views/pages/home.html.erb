@@ -4,7 +4,7 @@
     <div class="navbar-wrapper px-5 py-3">
 
       <nav class="navbar">
-        <a href="/" class="brand-logo">airbnbeast</a>
+        <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
         <% if current_user %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
         <% elsif !current_user %>

@@ -13,12 +13,24 @@
   <%= @beast.bio %>
 </p>
 
-<h3>how to i look ?</h3>
+<h3>how do i look ?</h3>
 <% @beast.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
 <% end %>
 <h6><%= link_to 'back to list', beasts_path %></h6>
-<%# <% raise %> %>
+
+<% if @beast.user == @user %>
+<%# cas 1 : l'user est le propriétaire de la beast %>
+<ul>
+<% @beast.rentals.each do |rental| %>
+  <li>
+    <%= rental.user.first_name %> <%= rental.user.last_name %> has <%= rental.beast.name %> rentend  from <%= rental.start_date %> to <%= rental.end_date %>
+  </li>
+<% end %>
+</ul>
+
+<% elsif user_signed_in? %>
+<%# cas 2 : l'user est un autre user connecte et donc un locataire %>
 
 <div class="container" id = 'form_rental'>
   <h1  class = "text-center btn-btn-primary" >Book <%= @beast.name %></h1>
@@ -30,3 +42,10 @@
     <% end %>
   </div>
 </div>
+
+<% else %>
+<%# cas 3 : l'user n'est pas conneté %>
+
+  <%= link_to "Log in to book #{@beast.name}", new_user_session_path, class: "btn btn-default" %>
+
+<% end %>

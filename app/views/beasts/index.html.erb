@@ -3,7 +3,8 @@
 
 
       <nav class="navbar">
-        <a href="/" class="brand-logo">airbnbeast</a>
+        <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
+
         <% if current_user %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
         <% elsif !current_user %>
@@ -39,7 +40,7 @@
 </div>
 
 <div class="site-content">
-  <div class="beasts-list ps-5 pe-3 col-8">
+  <div class="beasts-list ps-5 pe-5 col-7">
 
     <h3>Ranking by relevance</h3>
 
@@ -68,6 +69,7 @@
 
             </div>
           </div>
+          <hr>
         <% end %>
       <%end %>
 
@@ -75,9 +77,8 @@
   </div>
 
 <div
-  class="col-4 ms-5"
+  class="map col-5 ms-5"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
 </div>
