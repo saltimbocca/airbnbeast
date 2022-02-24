@@ -8,8 +8,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, 
-                  required: true, 
+      <%= f.input :email,
+                  required: true,
                   placeholder: 'email',
                   autofocus: true %>
 
@@ -17,24 +17,19 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <% if current_retailer %>
-        
-        <%= f.input :name,
-                    placeholder: "change your name",
-                    required: false,
-                    input_html: { autocomplete: "new-first-name" } %>
-      
-      <% else %>
+
         <%= f.input :first_name,
                     placeholder: "change your first name",
                     required: false,
                     input_html: { autocomplete: "new-first-name" } %>
+
         <%= f.input :last_name,
                     placeholder: "change your last name",
                     required: false,
-                    input_html: { autocomplete: "new-last-name" } %>       
-      <% end %>
-      
+                    input_html: { autocomplete: "new-last-name" } %>
+
+        <%= f.input :photo, as: :file %>
+
       <%= f.input :password,
                   placeholder: "new password",
                   required: false,

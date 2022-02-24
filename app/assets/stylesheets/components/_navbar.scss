@@ -18,15 +18,30 @@
 }
 
 .dropdown-menu.show {
+  position: absolute;
   display: block;
   border-radius: 6px;
   overflow: hidden;
   background-color: white;
+  top: 100%;
 }
 
 .dropdown-menu[data-bs-popper] {
-  top: 100%;
-  left: -70px;
   margin-top: 0.125rem;
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.376);
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
 }
