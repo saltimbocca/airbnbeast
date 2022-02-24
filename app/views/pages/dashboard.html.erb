@@ -1,27 +1,156 @@
-<h1>My reservations</h1>
-
+<!--Compte le nombre de in progress -->
+<% icours = 0 %>
 <% @rentals.each do |rental| %>
-  <div class="beast-card card my-4 d-flex flex-row">
-    <%= cl_image_tag rental.beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
-    <div class="card-infos ms-4 d-flex justify-content-between flex-column">
-      <div class="top-card">
-        <h6><%= rental.beast.species %></h6>
-        <h3><%= rental.beast.bio %></h3>
-      </div>
-
-      <div class="middle-card">
-        <p>Name: <%= rental.beast.name %></p>
-        <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-        <p>Location: <%= rental.beast.user.address %></p>
-      </div>
-
-      <div class="reviews d-flex align-items-center">
-        <i class="fa-solid fa-star"></i>
-        <p class="review mx-2 py-2 my-0">
-          <span class="note">4.88</span> • (34 reviews)
-        </p>
-      </div>
-
-    </div>
-  </div>
+      <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) &&
+       ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
+        <% icours += 1 %>
+      <% end %>
 <% end %>
+
+<!--Compte le nombre de My reservations -->
+<% ireservations = 0 %>
+<% @rentals.each do |rental| %>
+      <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
+        <% ireservations += 1 %>
+      <% end %>
+<% end %>
+
+<!--Compte le nombre de My past reservations -->
+<% ipastreservations = 0 %>
+<% @rentals.each do |rental| %>
+      <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
+        <% ipastreservations += 1 %>
+      <% end %>
+<% end %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
+  <div class="container text-center">
+    <h1>Welcome back <%= @user.first_name  %> </h1>
+  </div>
+</div>
+
+
+
+<div data-controller="onglet">
+  <h1 data-action="click->onglet#hide" class = "user"> User </h1>
+  <div data-onglet-target="user" class = "transition-user d-none">
+      <h2>The beasts you rent</h2>
+      <h3>In progress</h3>
+  </div>
+
+  <div class = "owner">
+    <h1 data-action="click->onglet#hide"> Owner </h1>
+    <div data-onglet-target="owner" class = "transition-owner">
+    <br>
+      <h2>Your beasts</h2>
+      <br>
+      <h3>In progress (<%= icours %>)</h3>
+      <%i = 0 %>
+      <% @rentals.each do |rental| %>
+        <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) && ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
+          <div class="beast-card card my-4 d-flex flex-row">
+            <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
+            <div class="card-infos ms-4 d-flex justify-content-between flex-column">
+              <div class="top-card">
+                <h6><%= rental.beast.species %></h6>
+                <h3><%= rental.beast.bio %></h3>
+              </div>
+
+              <div class="middle-card">
+                <p>Name: <%= rental.beast.name %></p>
+                <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                <p>Location: <%= rental.beast.user.address %></p>
+              </div>
+
+              <div class="reviews d-flex align-items-center">
+                <i class="fa-solid fa-star"></i>
+                <p class="review mx-2 py-2 my-0">
+                  <span class="note">4.88</span> • (34 reviews)
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <% i += 1 %>
+        <% end %>
+      <% end %>
+      <% if i === 0  %>
+          <p>You don't have any reservations for the moment</p>
+      <% end %>
+
+      <h3>My reservations (<%=ireservations%>)</h3>
+      <%i = 0 %>
+      <% @rentals.each do |rental| %>
+        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
+          <div class="beast-card card my-4 d-flex flex-row">
+            <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
+            <div class="card-infos ms-4 d-flex justify-content-between flex-column">
+              <div class="top-card">
+                <h6><%= rental.beast.species %></h6>
+                <h3><%= rental.beast.bio %></h3>
+              </div>
+
+              <div class="middle-card">
+                <p>Name: <%= rental.beast.name %></p>
+                <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                <p>Location: <%= rental.beast.user.address %></p>
+              </div>
+
+              <div class="reviews d-flex align-items-center">
+                <i class="fa-solid fa-star"></i>
+                <p class="review mx-2 py-2 my-0">
+                  <span class="note">4.88</span> • (34 reviews)
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <% i += 1 %>
+        <% end %>
+      <% end %>
+      <% if i === 0  %>
+          <p>You don't have any reservations for the moment</p>
+      <% end %>
+
+      <h3>My past reservations (<%= ipastreservations %>)</h3>
+
+      <% @rentals.each do |rental| %>
+        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
+          <div class="beast-card card my-4 d-flex flex-row">
+            <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
+            <div class="card-infos ms-4 d-flex justify-content-between flex-column">
+              <div class="top-card">
+                <h6><%= rental.beast.species %></h6>
+                <h3><%= rental.beast.bio %></h3>
+              </div>
+
+              <div class="middle-card">
+                <p>Name: <%= rental.beast.name %></p>
+                <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                <p>Location: <%= rental.beast.user.address %></p>
+              </div>
+
+              <div class="reviews d-flex align-items-center">
+                <i class="fa-solid fa-star"></i>
+                <p class="review mx-2 py-2 my-0">
+                  <span class="note">4.88</span> • (34 reviews)
+                </p>
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <h6><%= link_to 'Add a beast', new_beast_path %></h6>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
