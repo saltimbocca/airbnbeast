@@ -7,6 +7,7 @@ User.destroy_all
 
 puts 'previous seed destroyed'
 puts 'creating new seed'
+
 user1 = User.new(email: 'crocodiledundee@gmail.com', password: '123456', first_name: 'Crocodile', last_name: 'Dundee', address: '14 Rue Crespin du Gast 75011 Paris', bio: 'Salut à tous, je suis une star de cinéma en Australie et j\'aime les animaux, surtout s\'ils sont dangereux 🐊. Je fais le Wagon au #perchoir (les meilleurs) mais j\'ai du mal à trouver des crocodiles à Paris')
 user1.save!
 puts 'user1 done!'
@@ -29,5 +30,6 @@ beast3.photos.attach(io: photo3, filename: "#{beast3.name}.jpg")
 beast3.save!
 puts 'beast3 done!'
 rental1 = Rental.new(user: user1, beast: beast1, start_date: Date.today, end_date: Date.today + 1, status: 'Confirmed')
+
 rental1.save!
 puts 'rental done!'
