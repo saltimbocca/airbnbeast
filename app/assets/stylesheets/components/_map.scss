@@ -7,6 +7,10 @@
   background-color: #e6e5ec;
 }
 
+.mapboxgl-ctrl, .mapboxgl-ctrl-logo {
+  display: none;
+}
+
 .mapboxgl-popup {
   max-width: 100px;
 }
