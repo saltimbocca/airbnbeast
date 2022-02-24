@@ -14,9 +14,7 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <%= link_to "log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <%= link_to "my dashboard", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
     </ul>
   </div>
   </div>
