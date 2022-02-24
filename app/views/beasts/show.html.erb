@@ -1,46 +1,42 @@
-<h1><%= @beast.name %></h1>
-<%# <h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %>
-<%# <h6><%= link_to 'Edit', edit_beast_path(@beast) %>
+  <div class="sticky-navbar">
+    <div class="navbar-wrapper px-5 py-3">
 
-<h2>
-<span>
-<%= @beast.species %> -
-</span>
-<span>
-<%= @beast.gender %>
-</span>
-</h2>
-<p>
-  <%= @beast.bio %>
-</p>
 
-<h3>how do i look ?</h3>
-<% @beast.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 400, width: 400, crop: :fill %>
-<% end %>
-<h6><%= link_to 'back to list', beasts_path %></h6>
+        <nav class="navbar">
+          <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
 
-<% if @beast.user == @user %>
-<%# cas 1 : l'user est le propriétaire de la beast %>
-<ul>
-<% @beast.rentals.each do |rental| %>
-  <li>
-    <%= rental.user.first_name %> <%= rental.user.last_name %> has <%= rental.beast.name %> rentend  from <%= rental.start_date %> to <%= rental.end_date %>
-  </li>
-<% end %>
-</ul>
+          <% if current_user %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
+          <% elsif !current_user %>
+            <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
+          <% end %>
+        </nav>
 
-<% elsif user_signed_in? %>
-<%# cas 2 : l'user est un autre user connecte et donc un locataire %>
+      <div class="search-wrapper">
+        <div class="searchbar py-3 ps-5 pe-3 w-100">
 
-<div class="container" id = 'form_rental'>
-  <h1  class = "text-center btn-btn-primary" >Book <%= @beast.name %></h1>
-  <div class = 'col'>
-    <%= simple_form_for [@beast, @rental] do |f| %>
-      <%= f.input :start_date, html5: true %>
-      <%= f.input :end_date, html5: true %>
-      <%= f.button :submit %>
-    <% end %>
+          <div class="border-right search-items pe-4">
+            <label for="">Animal breed</label>
+            <input type="text" class="border-0"  placeholder="How much do you want to suffer?">
+          </div>
+
+          <div class="border-right search-items px-4 border-start border-end">
+            <label for="">Arrival date</label>
+            <input type="text" class="border-0"  placeholder="When?">
+          </div>
+
+          <div class="border-right search-items px-4">
+            <label for="">Departure date</label>
+            <input type="text" class="border-0" placeholder="If you are still alive...">
+          </div>
+
+          <a href="#" class="btn rounded-green-btn d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
   </div>
 
 <div class="container mt-3 pt-3">
