@@ -1,4 +1,87 @@
-<h1><%= @beast.name %></h1>
+  <div class="sticky-navbar">
+    <div class="navbar-wrapper px-5 py-3">
+
+
+        <nav class="navbar">
+          <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
+
+          <% if current_user %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
+          <% elsif !current_user %>
+            <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
+          <% end %>
+        </nav>
+
+      <div class="search-wrapper">
+        <div class="searchbar py-3 ps-5 pe-3 w-100">
+
+          <div class="border-right search-items pe-4">
+            <label for="">Animal breed</label>
+            <input type="text" class="border-0"  placeholder="How much do you want to suffer?">
+          </div>
+
+          <div class="border-right search-items px-4 border-start border-end">
+            <label for="">Arrival date</label>
+            <input type="text" class="border-0"  placeholder="When?">
+          </div>
+
+          <div class="border-right search-items px-4">
+            <label for="">Departure date</label>
+            <input type="text" class="border-0" placeholder="If you are still alive...">
+          </div>
+
+          <a href="#" class="btn rounded-green-btn d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+
+  <div class="header-show px-5 py-5">
+    <h3>Keeping <%= @beast.name %> during the hollidays</h3>
+    <div class="reviews d-flex align-items-center">
+      <i class="fa-solid fa-star"></i>
+      <p class="review mx-2 py-2 my-0">
+        <span class="note">4.88</span> • (34 reviews) • 
+        <span id="location">Location: Paris, France</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="img-wrapper px-5 mx-5">
+    <% @beast.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill, class: "show-img-placeholder" %>
+    <% end %>
+  </div>
+
+  <div class="show-content my-4 px-5 py-5 d-flex">
+    <div class="description col-5 ps-5">
+      <div class="owner-top d-flex justify-content-between">
+        <div class="owner-wrapper">
+          <h3 class="owner-infos">Owner: John Doe</h3>
+          <p class="owner-bio">I am John the happy owner of <%= @beast.name %></p>
+        </div>
+        <div class="avatar"></div>
+      </div>
+      <hr>
+      <div class="infos mt-4">
+        <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit repudiandae, nobis ut ipsam laudantium vero maiores, officiis magni assumenda sit maxime? Consectetur sapiente voluptate laboriosam, reiciendis nesciunt odit explicabo.
+        <br><br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit repudiandae, nobis ut ipsam laudantium vero maiores, officiis magni assumenda sit maxime? Consectetur sapiente voluptate laboriosam, reiciendis nesciunt odit explicabo.
+        </p>
+      </div>
+    </div>
+
+    <div class="booking col-6"></div>
+  </div>
+</div>
+
+
 <%# <h6><%= link_to 'Destroy', @beast, method: :delete, data: { confirm: 'Are you shure you want to remove your beast from the list ?'} %>
 <%# <h6><%= link_to 'Edit', edit_beast_path(@beast) %>
 <h2>

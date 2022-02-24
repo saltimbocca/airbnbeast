@@ -1,0 +1,54 @@
+.header-show {
+  margin-top: 50px;
+
+  h3 {
+    font-size: 34px;
+  }
+
+  p, #location {
+    color: $gray;
+  }
+  
+  .fa-star {
+    color: $green;
+  }
+  
+  #location {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}
+
+.show-img-placeholder {
+  width: 100%;
+  min-height: 300px;
+  border-radius: 20px;
+  background-repeat: none;
+  background-position: center;
+}
+
+.owner-infos {
+  font-size: 18;
+}
+
+.owner-bio {
+  font-size: 13px;
+  color: $gray;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+
+  border-radius: 50%;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://thispersondoesnotexist.com/image');
+}
+
+.infos {
+  font-weight: 400;
+  text-align: justify;
+  font-size: 14px;
+}
