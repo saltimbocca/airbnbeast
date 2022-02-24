@@ -10,13 +10,14 @@
 @import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
-@import "components/navbar";
-@import "components/cards";
+@import "components/avatar";
 @import "components/buttons";
-@import "components/searchbars";
+@import "components/cards";
+@import "components/footer";
 @import "components/headers";
 @import "components/index";
-@import "components/footer";
+@import "components/navbar";
+@import "components/searchbars";
 @import "pages/index";
 @import "pages/home";
 

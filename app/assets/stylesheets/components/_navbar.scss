@@ -16,3 +16,16 @@
   top: 0;
   z-index: 1000;
 }
+
+.dropdown-menu.show {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  left: -70px;
+  margin-top: 0.125rem;
+}

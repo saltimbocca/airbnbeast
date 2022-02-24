@@ -5,14 +5,10 @@
 
       <nav class="navbar">
         <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
-        <% if current_user %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
-        <% elsif !current_user %>
-          <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
-        <% end %>
+        <%= render "pages/dropdown_user", user: @user %>
       </nav>
 
-      <div class="search-wrapper">
+      <div class="search-wrapper mt-4">
         <div class="searchbar py-3 ps-5 pe-3 w-100">
 
           <div class="border-right search-items pe-4">
