@@ -47,7 +47,7 @@
       <% @beasts.each do |beast| %>
         <%= link_to beast_path(beast) do %>
           <div class="beast-card card my-4 d-flex flex-row">
-            <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
+            <%= cl_image_tag beast.photos.first.key, class: "img-placeholder", style: "background-image", crop: :fill %>
             <div class="card-infos ms-4 d-flex justify-content-between flex-column">
               <div class="top-card">
                 <h6>Species: <%= beast.species %> - Owner: <%= beast.user.first_name.capitalize %></h6>

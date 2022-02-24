@@ -8,29 +8,36 @@
         <%= render "pages/dropdown_user", user: @user %>
       </nav>
 
-      <div class="search-wrapper mt-4">
-        <div class="searchbar py-3 ps-5 pe-3 w-100">
-
-          <div class="border-right search-items pe-4">
-            <label for="">Animal breed</label>
-            <input type="text" class="border-0"  placeholder="How much do you want to suffer?">
+      <div class="search-wrapper">
+        <%= form_tag(beasts_path, {method: :get, class: 'searchbar py-3 ps-5 pe-3 w-100'}) do %>
+          <div class='form-control border-0 border-right search-items pe-4 border-end'>
+            <%= label_tag :query, 'Find your beast' %>
+            <%= text_field_tag :query,
+              params[:query],
+              placeholder: "Crocodile"
+            %>
+            
           </div>
-
-          <div class="border-right search-items px-4 border-start border-end">
-            <label for="">Arrival date</label>
-            <input type="text" class="border-0"  placeholder="When?">
+          <div class='form-control border-0 border-right search-items pe-4 border-end'>
+            <%= label_tag 'Start date' %>
+            <%= text_field_tag :start_date,
+              params[:start_date],
+              placeholder: "Today!",
+              as: :string, input_html: { id: "start_date" }
+            %>
           </div>
-
-          <div class="border-right search-items px-4">
-            <label for="">Departure date</label>
-            <input type="text" class="border-0" placeholder="If you are still alive...">
+          <div class='form-control border-0 border-right search-items'>
+            <%= label_tag 'End date' %>
+            <%= text_field_tag :end_date,
+              params[:end_date],
+              placeholder: "If you survive!",
+              as: :string, input_html: { id: "end_date" }
+            %>
           </div>
-
-          <a href="#" class="btn rounded-green-btn d-flex align-items-center justify-content-center">
+          <%= button_tag(beasts_path, {class: "btn rounded-green-btn d-flex align-items-center justify-content-center px-4"}) do %>
             <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-
-        </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
