@@ -51,12 +51,14 @@
       <p class="pt-2">You have <strong><%= @user.beasts.length %></strong> beasts in your dashboard</p>
       <div class="d-flex flex-column scrollable-card">
         <% @user.beasts.each do |beast| %>
-        <div class="card-product">
-          <%= cl_image_tag beast.photos.first.key %>
-          <div class="card-product-infos d-flex">
-            <h2><%= beast.name %></h2>
-          </div>
-        </div>
+          <%= link_to beast_path(beast) do %>
+            <div class="card-product">
+              <%= cl_image_tag beast.photos.first.key %>
+              <div class="card-product-infos d-flex">
+                <h2><%= beast.name %></h2>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
