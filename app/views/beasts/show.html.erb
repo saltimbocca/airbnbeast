@@ -47,9 +47,16 @@
     <div class="top-section d-flex align-items-center">
 
         <%# ici  %>
-      <%# <div class="avatar-show me-4"></div> %>
-      <%= cl_image_tag @user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
 
+      <% if @beast.user.photo.key.nil? %>
+      <%# <div class="avatar-show me-4"></div> %>
+       <%= cl_image_tag @user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
+
+      <% else %>
+
+       <%= cl_image_tag @beast.user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
+
+      <% end %>
 
       <div class="text-wrapper">
         <h4 class="my-1">Owner: <%= @beast.user.first_name %> <%= @beast.user.last_name %></h4>
