@@ -22,7 +22,7 @@
 @import "components/footer";
 @import "pages/index";
 @import "pages/home";
-@import "pages/dashboard";
+// @import "pages/dashboard";
 
 .header-card-wrapper {
   position: absolute;
@@ -81,4 +81,8 @@
 
 a {
   text-decoration: none;
+}
+
+.section-title {
+  color: $black !important;
 }
