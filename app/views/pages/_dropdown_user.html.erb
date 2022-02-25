@@ -2,7 +2,15 @@
   <div class="dropdown">
     <button class="btn btn-dropdown " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       <span><%= user.first_name %></span> <span class="me-2"><%= user.last_name %></span>
-        <%= cl_image_tag user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar" %>
+
+        <% if user.photo.key.nil? %>
+          <%= image_tag "https://res.cloudinary.com/dngfqo2nf/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645787355/production/2u56hzrwakl8ztsse6yxrvyevzxk.jpg", :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar" %>
+
+        <% else %>
+
+          <%= cl_image_tag user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar" %>
+
+        <% end %>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <%= link_to "my dashboard", dashboard_path, class:"dropdown-item" %>
