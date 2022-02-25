@@ -48,13 +48,13 @@
 
         <%# ici  %>
 
+
       <% if @beast.user.photo.key.nil? %>
-      <%# <div class="avatar-show me-4"></div> %>
-       <%= image_tag "w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645787355/production/2u56hzrwakl8ztsse6yxrvyevzxk.jpg", :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"crop", class: "avatar-large me-2" %>
+      <%= image_tag "https://res.cloudinary.com/dngfqo2nf/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645787355/production/2u56hzrwakl8ztsse6yxrvyevzxk.jpg", :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
 
       <% else %>
+      <%= cl_image_tag @beast.user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
 
-       <%= cl_image_tag @beast.user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
 
       <% end %>
 
@@ -64,7 +64,7 @@
       </div>
     </div>
     <hr class="mb-4">
-    <p class="description-owner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quam amet recusandae facilis modi sed dignissimos corporis pariatur nam praesentium? Assumenda minus veritatis hic similique molestiae nulla facilis doloremque suscipit?</p>
+    <p class="description-owner"><%= @beast.user.bio %></p>
   </div>
   <br>
 </div>
