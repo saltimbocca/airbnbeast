@@ -72,20 +72,22 @@
         </div>
 
         <p class="pt-2">You have <strong><%= icours  %></strong> reservations in progress</p>
-        <% @rentals.each do |rental| %>
-        <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) && ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
-        <div class="card-product">
-          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
-          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
-            <div class="middle-card">
-              <p>Name: <%= rental.beast.name %></p>
-              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-              <p>Location: <%= rental.beast.user.address %></p>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
+          <% @rentals.each do |rental| %>
+            <%= link_to beast_path(rental.beast) do %>
+              <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) && ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
+                <div class="card-product">
+                  <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+                  <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+                    <div class="middle-card">
+                      <p>Name: <%= rental.beast.name %></p>
+                      <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                      <p>Location: <%= rental.beast.user.address %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
       </div>
 
       <div class="middle-wrapper my-4">
@@ -97,18 +99,20 @@
 
         <p class="pt-2">You have <strong><%= ireservations  %></strong> reservations</p>
         <% @rentals.each do |rental| %>
-        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
-        <div class="card-product">
-          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
-          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
-            <div class="middle-card">
-              <p>Name: <%= rental.beast.name %></p>
-              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-              <p>Location: <%= rental.beast.user.address %></p>
+          <%= link_to beast_path(rental.beast) do %>
+            <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
+            <div class="card-product">
+              <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+              <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+                <div class="middle-card">
+                  <p>Name: <%= rental.beast.name %></p>
+                  <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                  <p>Location: <%= rental.beast.user.address %></p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <% end %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
 
@@ -121,18 +125,21 @@
 
         <p class="pt-2">You have <strong><%= ipastreservations  %></strong> reservations passed</p>
         <% @rentals.each do |rental| %>
-        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
-         <div class="card-product">
-          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
-          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
-            <div class="middle-card">
-              <p>Name: <%= rental.beast.name %></p>
-              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-              <p>Location: <%= rental.beast.user.address %></p>
-            </div>
-          </div>
-        </div>
-        <% end %>
+          <%= link_to beast_path(rental.beast) do %>
+            <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
+              <div class="card-product">
+                <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+                <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+                  <div class="middle-card">
+                    <p>Name: <%= rental.beast.name %></p>
+                    <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+                    <p>Location: <%= rental.beast.user.address %></p>
+                  </div>
+                </div>
+              </div>
+              <div>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
 
