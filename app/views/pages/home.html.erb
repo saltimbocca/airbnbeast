@@ -16,7 +16,7 @@
               params[:query],
               placeholder: "Crocodile"
             %>
-            
+
           </div>
           <div class='form-control border-0 border-right search-items pe-4 border-end'>
             <%= label_tag 'Start date' %>
@@ -56,41 +56,61 @@
 <section class="overview-section">
   <h3 class="section-title my-5">Super cute animals to take care of</h3>
 
-  <ul class="card-list d-flex">
+<div class="container-fluid horizontal-bar-container">
+    <div class="d-flex justify-content-between">
 
-  <div class="card-sm" style="background-color: #7DB23C">
-    <img class="img-placeholder w-100" style="background-image: url('https://ak.picdn.net/shutterstock/videos/15936448/thumb/1.jpg')">
-    <div class="card-infos">
-      <h3>Pipounette</h3>
-      <p>34 kilometers away</p>
-    </div>
-  </div>
 
-  <div class="card-sm" style="background-color: #284942">
-    <img class="img-placeholder w-100" style="background-image: url('https://cdn.roaring.earth/wp-content/uploads/2019/05/CATERS_Jeremy_Wade_Extreme_Fishing_01.jpg')">
+  <div class="card-sm flex-grow-1" style="background-color: #7db23c">
+      <%= link_to beast_path(@selection[0]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[0].photos.first.key %>')">
     <div class="card-infos">
-      <h3>Sucre d'orge</h3>
+      <h3><%= @selection[0].name %></h3>
       <p>42 kilometers away</p>
     </div>
+      <% end %>
   </div>
 
-  <div class="card-sm" style="background-color: #BDBD2C">
-    <img class="img-placeholder w-100" style="background-image: url('https://media.istockphoto.com/photos/close-up-of-a-tigers-face-picture-id91820330?k=20&m=91820330&s=612x612&w=0&h=7eJznJXXZo_7zDD8vZz6nCxFCSeSvAkE42klLowbr-Q=')">
+  <div class="card-sm flex-grow-1" style="background-color: #284942">
+      <%= link_to beast_path(@selection[1]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[1].photos.first.key %>')">
     <div class="card-infos">
-      <h3>Tigrou</h3>
+      <h3><%= @selection[1].name %></h3>
+      <p>42 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
+
+  <div class="card-sm flex-grow-1" style="background-color: #BDBD2C">
+      <%= link_to beast_path(@selection[2]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[2].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[2].name %></h3>
       <p>34 kilometers away</p>
     </div>
+      <% end %>
   </div>
 
-  <div class="card-sm" style="background-color: #7B7E6C">
-    <img class="img-placeholder w-100" style="background-image: url('https://www.catersnews.com/wp-content/uploads/2015/03/14_CATERS_TERRIFYING_HIPPO_CHARGE_13-800x498.jpg')">
+  <div class="card-sm flex-grow-1 d-none d-xl-block" style="background-color: #7db23c">
+      <%= link_to beast_path(@selection[3]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[3].photos.first.key %>')">
     <div class="card-infos">
-      <h3>Satan</h3>
+      <h3><%= @selection[3].name %></h3>
       <p>60 kilometers away</p>
     </div>
+      <% end %>
   </div>
 
-  </ul>
+  <div class="card-sm flex-grow-1 d-none d-lg-block" style="background-color: #7B7E6C">
+      <%= link_to beast_path(@selection[3]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[3].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[3].name %></h3>
+      <p>60 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
+
+</div>
 </section>
 
 <section class="asking-section px-5 my-5">

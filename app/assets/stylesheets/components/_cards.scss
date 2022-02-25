@@ -82,7 +82,7 @@
   min-height: 380px;
 
   border-radius: 6px;
-
+  padding-inline: 0;
   margin: 0 16px;
   color: $white;
   background-color: $green;
@@ -100,5 +100,9 @@
 
   .card-infos {
     padding: 20px;
+  }
+
+  a {
+    color: white;
   }
 }
