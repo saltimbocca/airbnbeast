@@ -14,13 +14,13 @@
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <%= link_to "my dashboard", dashboard_path, class:"dropdown-item" %>
         <%= link_to "my profile", edit_user_registration_path, class:"dropdown-item" %>
-        <%= link_to "add a new beast", new_beast_path, class:"dropdown-item" %>
+      <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalNewBeast">
+        add new beast
+      </button>
         <%= link_to "log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
     </ul>
-  </div>
   </div>
 
 <% else %>
   <%= link_to "log in", new_user_session_path, class:"no-avatar" %>
-
 <% end %>
