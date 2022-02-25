@@ -56,12 +56,59 @@
 <section class="overview-section">
   <h3 class="section-title my-5">Super cute animals to take care of</h3>
 
-<div class="container px-4">
-  <div class="row gx-5">
+<div class="container-fluid horizontal-bar-container">
+    <div class="d-flex justify-content-between">
 
 
+  <div class="card-sm flex-grow-1" style="background-color: #7db23c">
+      <%= link_to beast_path(@selection[0]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[0].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[0].name %></h3>
+      <p>42 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
 
+  <div class="card-sm flex-grow-1" style="background-color: #284942">
+      <%= link_to beast_path(@selection[1]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[1].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[1].name %></h3>
+      <p>42 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
 
+  <div class="card-sm flex-grow-1" style="background-color: #BDBD2C">
+      <%= link_to beast_path(@selection[2]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[2].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[2].name %></h3>
+      <p>34 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
+
+  <div class="card-sm flex-grow-1 d-none d-xl-block" style="background-color: #7db23c">
+      <%= link_to beast_path(@selection[3]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[3].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[3].name %></h3>
+      <p>60 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
+
+  <div class="card-sm flex-grow-1 d-none d-lg-block" style="background-color: #7B7E6C">
+      <%= link_to beast_path(@selection[3]) do %>
+    <img class="img-placeholder w-100" style="background-image: url('<%= cl_image_path @selection[3].photos.first.key %>')">
+    <div class="card-infos">
+      <h3><%= @selection[3].name %></h3>
+      <p>60 kilometers away</p>
+    </div>
+      <% end %>
+  </div>
 
 </div>
 </section>
