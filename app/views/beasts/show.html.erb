@@ -4,12 +4,7 @@
 
         <nav class="navbar">
           <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
-
-          <% if current_user %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-navbar"%>
-          <% elsif !current_user %>
-            <a href="/users/sign_in" class="btn btn-navbar">Sign In</a>
-          <% end %>
+          <%= render "pages/dropdown_user", user: @user %>
         </nav>
 
       <div class="search-wrapper">
@@ -43,11 +38,11 @@
   <div class="header-show">
 
     <h3>Keeping <%= @beast.name %> during the hollidays</h3>
-    
+
     <div class="reviews d-flex mb-5 align-items-center">
       <i class="fa-solid fa-star"></i>
       <p class="review mx-2 py-2 my-0">
-        <span class="note">4.88</span> • (34 reviews) • 
+        <span class="note">4.88</span> • (34 reviews) •
         <span id="location">Location: Paris, France</span>
       </p>
     </div>
