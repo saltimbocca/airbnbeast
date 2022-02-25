@@ -33,3 +33,13 @@ rental1 = Rental.new(user: user1, beast: beast1, start_date: Date.today, end_dat
 
 rental1.save!
 puts 'rental done!'
+beast4 = Beast.new(user: user2, name: 'Donkey Kong', gender: 'Mâle', date_of_birth: '2015-01-10', species: 'Monkey', bio: 'Ouh Ouh')
+photo3 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg/800px-Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg')
+beast3.photos.attach(io: photo3, filename: "#{beast3.name}.jpg")
+beast3.save!
+puts 'beast3 done!'
+beast3 = Beast.new(user: user2, name: 'Donkey Kong', gender: 'Mâle', date_of_birth: '2015-01-10', species: 'Monkey', bio: 'Ouh Ouh')
+photo3 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg/800px-Gorille_des_plaines_de_l%27ouest_%C3%A0_l%27Espace_Zoologique.jpg')
+beast3.photos.attach(io: photo3, filename: "#{beast3.name}.jpg")
+beast3.save!
+puts 'beast3 done!'
