@@ -14,4 +14,11 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-import "plugins/flatpickr"
+import { initFlatpickr } from "../plugins/flatpickr"
+
+
+console.log('toto')
+document.addEventListener("turbolinks:load", function() {
+  initFlatpickr();
+  console.log('titi')
+})

@@ -9,12 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script defer src="https://kit.fontawesome.com/c2b6fbe930.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= yield %>
     <%= render "beasts/beast_form" %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </body>
 </html>
