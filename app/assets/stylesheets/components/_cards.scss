@@ -1,8 +1,10 @@
 .beast-card {
   display: flex;
+  position: relative;
   padding: 25px;
   border: none;
   text-decoration: none;
+  box-shadow: none;
 
   .img-placeholder {
     overflow: hidden;
@@ -29,7 +31,7 @@
     color: $black;
   }
 
-  p {
+  p, .review {
     font-size: 13px;
     font-weight: 300;
     color: $gray;
@@ -50,6 +52,15 @@
     font-size: 13px;
     font-weight: 600;
     color: black;
+  }
+
+  .middle-card {
+    p {
+      font-size: 13px;
+      font-weight: 300;
+      color: $gray;
+      margin: 4px 0;
+    }
   }
 }
 
