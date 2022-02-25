@@ -1,38 +1,4 @@
-  <div class="sticky-navbar">
-    <div class="navbar-wrapper px-5 py-3">
-
-
-        <nav class="navbar">
-          <%= link_to "airbnbeast", root_path, class: 'brand-logo' %>
-          <%= render "pages/dropdown_user", user: @user %>
-        </nav>
-
-      <div class="search-wrapper">
-        <div class="searchbar py-3 ps-5 pe-3 w-100">
-
-          <div class="border-right search-items pe-4">
-            <label for="">Animal breed</label>
-            <input type="text" class="border-0"  placeholder="How much do you want to suffer?">
-          </div>
-
-          <div class="border-right search-items px-4 border-start border-end">
-            <label for="">Arrival date</label>
-            <input type="text" class="border-0"  placeholder="When?">
-          </div>
-
-          <div class="border-right search-items px-4">
-            <label for="">Departure date</label>
-            <input type="text" class="border-0" placeholder="If you are still alive...">
-          </div>
-
-          <a href="#" class="btn rounded-green-btn d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-
-        </div>
-      </div>
-    </div>
-  </div>
+<%= render "shared/navbar" %>
 
 <div class="container mt-3 pt-3">
   <div class="header-show">
