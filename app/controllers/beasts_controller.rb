@@ -10,7 +10,7 @@ class BeastsController < ApplicationController
     @beast = Beast.new(beast_params)
     @beast.user_id = @user.id
     if @beast.save!
-      redirect_to beasts_path(@beast)
+      redirect_to dashboard_path
     else
       render :new
     end
