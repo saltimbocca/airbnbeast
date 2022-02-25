@@ -10,9 +10,7 @@ export default class extends Controller {
 
   hide() {
     // console.log(this.ownerTarget.classList.value)
-      this.ownerTarget.classList.toggle('d-none');
-      this.userTarget.classList.toggle('d-none');
-    }
-
-
+    this.ownerTarget.classList.toggle('d-none');
+    this.userTarget.classList.toggle('d-none');
+}
 }
