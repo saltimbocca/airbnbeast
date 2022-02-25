@@ -1,79 +1,16 @@
-// .banner {
-//   background-size: cover;
-//   background-position: bottom;
-//   padding: 200px 0;
-//   object-fit:cover;
-// }
 
-// .banner h1 {
-//   margin: 0;
-//   font-family: Poppins;
-//   color: white;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   font-size: 32px;
-//   font-weight: bold;
-// }
+.container-card-dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 860px;
+  // width: 100vh;
+  justify-content: space-between;
 
-// .banner p {
-//   font-size: 20px;
-//   color: white;
-//   opacity: .7;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-// }
+}
 
-// .footer {
-//   background-color: black;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   min-height: 120px;
-//   padding: 0px 20px;
-//   color: rgba(0,0,0,0.3);
-// }
-// .footer-links {
-//   display: flex;
-//   align-items: center;
-// }
-// .footer-links a {
-//   color: #8C4E29;
-//   opacity: 0.15;
-//   text-decoration: none;
-//   font-size: 50px;
-//   padding: 0px 10px;
-// }
-// .footer-links a:hover {
-//   opacity: 1;
-// }
-// .footer .fa-heart {
-//   color: #D23333;
-// }
 
-// .container-card {
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   margin: 0 auto;
-//   width: 860px;
-//   // width: 100vh;
-//   justify-content: space-between;
-
-// }
-
-// .card {
-//   flex: 1 0 32%;
-//   // background-color: blue;
-//   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-//   border-radius: 5px;
-//   margin: 5px;
-// }
-
-// .card a {
-//   color: inherit;
-// }
-// .card p {
-//   color:black;
-//     font-size: 10px;
-// }
 // .button-add {
 //   background-color: #7DB23C;
 //   width: 300px;
@@ -109,53 +46,15 @@
 // }
 
 
-// .container-compte {
-//   margin: 0 auto;
-// }
-
-// // .type-user {
-// //   display: flex;
-// // }
-// .owner-label {
-//   position: absolute;
-//   top: 438px;
-//   left: 101px;
-//   // opacity: 0.3;
-// }
-
-
-// // .owner-label:hover {
-// //   opacity: 1;
-// //   text-decoration: underline;
-// //   transition: opacity 0.3s;
-// // }
-
-// .visuallyhidden {
-//   opacity: 1;
-// }
-
-// .hidden {
-//   display:none;
-// }
-
-
-// .type-user {
-//   transition: all 3s linear;
-//   display: block;
-// }
-
-// .type-owner {
-//   transition: all 3s linear;
-//   display: block;
-// }
 
 .card-product {
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -188,4 +87,10 @@
 
 .fa-plus {
   color: #7DB23C;
+}
+
+.card-box {
+  height: 80vh;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }

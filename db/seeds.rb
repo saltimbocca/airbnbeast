@@ -58,6 +58,7 @@ beast3.photos.attach(io: photo3, filename: "#{beast3.name}.jpg")
 beast3.save!
 puts 'beast3 done!'
 
+
 beast4 = Beast.new(user: user6, name: 'Tigrou', gender: 'Male', date_of_birth: '2012-01-25', species: 'Quadruped', bio: 'Rrrrrrrrrrr')
 photo4 = URI.open('https://upload.wikimedia.org/wikipedia/commons/4/41/Siberischer_tiger_de_edit02.jpg')
 beast4.photos.attach(io: photo4, filename: "#{beast4.name}.jpg")
@@ -77,3 +78,4 @@ beast6.save!
 puts 'beast6 done!'
 
 puts 'seed finished!'
+

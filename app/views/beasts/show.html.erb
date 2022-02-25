@@ -28,7 +28,7 @@
     </div>
 
     <div class="calendar-card col-5">
-      <h4 class="my-3">Add dates to see the price</h4>
+      <h4 class="my-3">When do you want to be whith <%= @beast.name %> ?</h4>
       <%= simple_form_for [@beast, @rental] do |f| %>
         <div class="d-flex justify-content-between">
           <div class="border rounded p-2 me-1 col-6">
@@ -45,7 +45,12 @@
 
   <div class="owner-section my-5 col-6 py-4">
     <div class="top-section d-flex align-items-center">
-      <div class="avatar-show me-4"></div>
+
+        <%# ici  %>
+      <%# <div class="avatar-show me-4"></div> %>
+      <%= cl_image_tag @user.photo.key, :gravity=>"face", :height=>40, :radius=>30, :width=>40, :crop=>"fill", class: "avatar-large me-2" %>
+
+
       <div class="text-wrapper">
         <h4 class="my-1">Owner: <%= @beast.user.first_name %> <%= @beast.user.last_name %></h4>
         <p class="my-1">Hello, I am the proud owner of <%= @beast.name %></p>
