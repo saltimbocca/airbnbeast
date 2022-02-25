@@ -60,6 +60,34 @@
   }
 }
 
+.return-section * {
+  text-decoration: none;
+  color: gray;
+  font-weight: 400;
+}
+
+a:hover {
+  color: $black !important;
+}   
+
+.text-wrapper p {
+  font-size: 13px;
+  color: $gray;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://thispersondoesnotexist.com/image')
+}
+
+.description-owner {
+  text-align: justify;
+}
+
 ///////////////////
 label > abbr {
   display: none;
