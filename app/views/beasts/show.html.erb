@@ -37,7 +37,12 @@
 <div class="container mt-3 pt-3">
   <div class="header-show">
 
-    <h3>Keeping <%= @beast.name %> during the hollidays</h3>
+    <h6 class="return-section my-2 py-2">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      <a class="link-return mx-2" href="/beasts">Go back to index</a>
+    </h6>
+
+    <h3>Look how cute is <%= @beast.name %>! Want to pet it?</h3>
 
     <div class="reviews d-flex mb-5 align-items-center">
       <i class="fa-solid fa-star"></i>
@@ -72,16 +77,22 @@
     </div>
   </div>
 
-  <div class="owner-section mt-5 col-6">
-    <h4>Owner: John Doe</h4>
-    <hr>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quam amet recusandae facilis modi sed dignissimos corporis pariatur nam praesentium? Assumenda minus veritatis hic similique molestiae nulla facilis doloremque suscipit?</p>
+  <div class="owner-section my-5 col-6 py-4">
+    <div class="top-section d-flex align-items-center">
+      <div class="avatar me-4"></div>
+      <div class="text-wrapper">
+        <h4 class="my-1">Owner: <%= @beast.user.first_name %> <%= @beast.user.last_name %></h4>
+        <p class="my-1">Hello, I am the proud owner of <%= @beast.name %></p>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <p class="description-owner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur quam amet recusandae facilis modi sed dignissimos corporis pariatur nam praesentium? Assumenda minus veritatis hic similique molestiae nulla facilis doloremque suscipit?</p>
   </div>
-
+  <br>
 </div>
 
 
-<footer class="footer w-100">
+<footer class="footer mt-5 w-100">
   <div class="top">
     <p>Ready for an unforgettable experience?</p>
     <h2>Sign up now!</h2>
