@@ -1,60 +1,33 @@
-
 .container-card-dashboard {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
-  width: 860px;
   // width: 100vh;
   justify-content: space-between;
 
 }
 
+a {
+  color: black;
+  :hover {
+    color: black;
+  }
+}
 
-// .button-add {
-//   background-color: #7DB23C;
-//   width: 300px;
-//   text-align: center;
-//   font-size: large;
-//   padding: 10px;
-//   font-weight: bold;
-//   border-radius: 5px;
-//   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-// }
-
-// .button-add a {
-//   color: inherit;
-//   color: white;
-// }
-
-// .dashboard {
-//   background-color: black ;
-// }
-
-// h1 {
-//   color:white;
-// }
-
-// h3 {
-//   color:white;
-// }
-// h2 {
-//   color:white;
-// }
-// p {
-//   color:white;
-// }
-
-
+.header-wrapper {
+  margin-top: 60px;
+}
 
 .card-product {
   overflow: hidden;
-  height: 120px;
   background: white;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   border-radius: 10px;
+  height: 130px;
+  margin-top: 16px;
 }
 
 .card-product img {
@@ -64,9 +37,13 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
+}
+
+.img-placeholder-dashboard {
+  border-radius: 6px;
 }
 
 .card-product p {
@@ -90,7 +67,38 @@
 }
 
 .card-box {
-  height: 80vh;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   border-radius: 10px;
+}
+
+.right-content p {
+  font-size: 13px;
+  color: $gray;
+}
+
+#signal-top {
+  width: 10px;
+  height: 10px;
+  margin-bottom: 5px;
+  border-radius: 50px;
+
+  background-color: #4ade80;
+}
+
+#signal-middle {
+  width: 10px;
+  height: 10px;
+  margin-bottom: 5px;
+  border-radius: 50px;
+
+  background-color: #fbbf24;
+}
+
+#signal-bottom {
+  width: 10px;
+  height: 10px;
+  margin-bottom: 5px;
+  border-radius: 50px;
+
+  background-color: #e9243e;
 }
