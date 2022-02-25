@@ -6,7 +6,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= render "beast_form", beast: @beast %>
+        <%= simple_form_for(beast) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :gender, collection: %w(male female) %>
+          <%= f.input :species, collection: %w(Quadruped Fish Bird Mollusc Insect Monkey) %>
+          <%= f.input :bio %>
+          <%= f.input :date_of_birth, html5: true %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true} %>
+          <%= f.submit %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

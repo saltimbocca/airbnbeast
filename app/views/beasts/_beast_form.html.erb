@@ -1,9 +1,24 @@
-<%= simple_form_for(beast) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :gender, collection: %w(male female) %>
-  <%= f.input :species, collection: %w(Quadruped Fish Bird Mollusc Insect Monkey) %>
-  <%= f.input :bio %>
-  <%= f.input :date_of_birth, html5: true %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true} %>
-  <%= f.submit %>
-<% end %>
+       <!-- Modal -->
+      <div class="modal fade" id="modalNewBeast" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add a beast ...</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for(@beasts.new) do |f| %>
+                <%= f.input :name %>
+                <%= f.input :gender, collection: %w(male female) %>
+                <%= f.input :species, collection: %w(Quadruped Fish Bird Mollusc Insect Monkey) %>
+                <%= f.input :bio %>
+                <%= f.input :date_of_birth, html5: true %>
+                <%= f.input :photos, as: :file, input_html: { multiple: true} %>
+            </div>
+            <div class="modal-footer">
+                <%= f.submit %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
