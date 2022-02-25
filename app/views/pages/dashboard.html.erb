@@ -41,9 +41,7 @@
     <div class="card-box p-5 col-6">
       <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
         <h2>Your beasts</h2>
-        <%= link_to new_beast_path do %>
-        <i class="fa-solid fa-plus"></i>
-        <% end %>
+        <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#modalNewBeast"></i>
       </div>
       <p class="pt-2">You have <strong><%= @user.beasts.length %></strong> beasts in your dashboard</p>
       <div class="d-flex flex-column scrollable-card">
