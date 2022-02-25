@@ -23,30 +23,35 @@
 <% end %>
 <% end %>
 
-<section class="jumbotron text-center py-3 mt-4">
+<%= render "shared/navbar" %>
+
+<section class="header-wrapper jumbotron text-center py-3 mt-4">
   <div class="container">
-    <h1 class="jumbotron-heading">My Dashboard</h1>
+    <h1 class="jumbotron-heading mt-4">My Dashboard</h1>
     <p class="lead text-muted mb-4">Find all the information concerning your reservations below.</p>
     <p>
-      <a href="#" class="btn btn-primary my-2">Add a beast to rent</a>
-      <a href="#" class="btn btn-secondary my-2">Go back to airbnbeast</a>
+      <a href="/beasts/new" class="btn btn-primary my-2">Add a beast to rent</a>
+      <a href="/" class="btn btn-secondary my-2">Go back to airbnbeast</a>
     </p>
   </div>
 </section>
 
 <hr class="col-6 offset-3 mb-5">
 
-<div class="container w-100">
+<div class="container w-100 my-5 py-4">
   <div class="cards-wrapper d-flex justify-content-around">
-    <div class="card-box p-5 col-6">
+
+    <div class="card-box p-5 col-5">
       <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
         <h2>Your beasts</h2>
-        <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#modalNewBeast"></i>
+        <%= link_to new_beast_path do %>
+        <i class="fa-solid fa-plus"></i>
+        <% end %>
       </div>
       <p class="pt-2">You have <strong><%= @user.beasts.length %></strong> beasts in your dashboard</p>
       <div class="d-flex flex-column scrollable-card">
         <% @user.beasts.each do |beast| %>
-        <div class="card-product my-2">
+        <div class="card-product">
           <%= cl_image_tag beast.photos.first.key %>
           <div class="card-product-infos d-flex">
             <h2><%= beast.name %></h2>
@@ -56,96 +61,80 @@
       </div>
     </div>
 
-    <div class="right-content d-flex flex-column col-5">
+    <div class="right-content card-box p-5 d-flex flex-column col-6">
       <h2 class="border-bottom pb-2">Your reservations</h2>
-      <h5>In progress :</h5>
-      <p class="pt-2">You have <strong><%= icours  %></strong> reservations in progress</p>
-      <% @rentals.each do |rental| %>
-      <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) && ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
-      <div class="card-product my-2">
-        <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
-        <div class="card-infos ms-4 d-flex justify-content-between flex-column">
-          <div class="top-card">
-            <h6><%= rental.beast.species %></h6>
-            <h3><%= rental.beast.bio %></h3>
-          </div>
 
-          <div class="middle-card">
-            <p>Name: <%= rental.beast.name %></p>
-            <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-            <p>Location: <%= rental.beast.user.address %></p>
-          </div>
+      <div class="wrapper-top my-4">
 
-          <div class="reviews d-flex align-items-center">
-            <i class="fa-solid fa-star"></i>
-            <p class="review mx-2 py-2 my-0">
-              <span class="note">4.88</span> • (34 reviews)
-            </p>
-          </div>
-
+        <div class="wrapper-top d-flex align-items-center">
+          <div id="signal-top"></div>
+          <h5 class="ms-3">In progress :</h5>
         </div>
+
+        <p class="pt-2">You have <strong><%= icours  %></strong> reservations in progress</p>
+        <% @rentals.each do |rental| %>
+        <% if ((Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0) && ((Date.parse(rental.end_date.to_s).to_time.to_i - Time.now.to_i) > 0)  %>
+        <div class="card-product">
+          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+            <div class="middle-card">
+              <p>Name: <%= rental.beast.name %></p>
+              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+              <p>Location: <%= rental.beast.user.address %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
       </div>
 
-      <% end %>
-      <% end %>
-      <h5>Current :</h5>
-      <p class="pt-2">You have <strong><%= ireservations  %></strong> reservations</p>
-      <% @rentals.each do |rental| %>
-      <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
-      <div class="card-product my-2">
-        <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
-        <div class="card-infos ms-4 d-flex justify-content-between flex-column">
-          <div class="top-card">
-            <h6><%= rental.beast.species %></h6>
-            <h3><%= rental.beast.bio %></h3>
-          </div>
+      <div class="middle-wrapper my-4">
 
-          <div class="middle-card">
-            <p>Name: <%= rental.beast.name %></p>
-            <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-            <p>Location: <%= rental.beast.user.address %></p>
-          </div>
-
-          <div class="reviews d-flex align-items-center">
-            <i class="fa-solid fa-star"></i>
-            <p class="review mx-2 py-2 my-0">
-              <span class="note">4.88</span> • (34 reviews)
-            </p>
-          </div>
-
+        <div class="wrapper-top d-flex align-items-center">
+          <div id="signal-middle"></div>
+          <h5 class="ms-3">Current :</h5>
         </div>
-      </div>
-      <% end %>
-      <% end %>
-      <h5>Past :</h5>
-      <p class="pt-2">You have <strong><%= ipastreservations  %></strong> reservations passed</p>
-      <% @rentals.each do |rental| %>
-      <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
-      <div class="card-product my-2">
-        <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder", style: "background-image"  ,height: 200, width: 300, crop: :fill %>
-        <div class="ms-4 d-flex justify-content-between flex-column">
-          <div class="top-card">
-            <h6><%= rental.beast.species %></h6>
-            <h3><%= rental.beast.bio %></h3>
-          </div>
 
-          <div class="middle-card">
-            <p>Name: <%= rental.beast.name %></p>
-            <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
-            <p>Location: <%= rental.beast.user.address %></p>
+        <p class="pt-2">You have <strong><%= ireservations  %></strong> reservations</p>
+        <% @rentals.each do |rental| %>
+        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) > 0 %>
+        <div class="card-product">
+          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+            <div class="middle-card">
+              <p>Name: <%= rental.beast.name %></p>
+              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+              <p>Location: <%= rental.beast.user.address %></p>
+            </div>
           </div>
-
-          <div class="reviews d-flex align-items-center">
-            <i class="fa-solid fa-star"></i>
-            <p class="review mx-2 py-2 my-0">
-              <span class="note">4.88</span> • (34 reviews)
-            </p>
-          </div>
-
         </div>
+        <% end %>
+        <% end %>
       </div>
-      <% end %>
-      <% end %>
+
+      <div class="bottom-wrapper my-4">
+
+        <div class="wrapper-top d-flex align-items-center">
+          <div id="signal-bottom"></div>
+          <h5 class="ms-3">Past :</h5>
+        </div>
+
+        <p class="pt-2">You have <strong><%= ipastreservations  %></strong> reservations passed</p>
+        <% @rentals.each do |rental| %>
+        <% if (Date.parse(rental.start_date.to_s).to_time.to_i - Time.now.to_i) < 0 %>
+         <div class="card-product">
+          <%= cl_image_tag rental.beast&.photos&.first&.key, class: "img-placeholder-dashboard", style: "background-image", crop: :fill %>
+          <div class="card-infos ms-4 py-4 d-flex justify-content-between flex-column">
+            <div class="middle-card">
+              <p>Name: <%= rental.beast.name %></p>
+              <p>Rentals from: <%=rental.start_date %> To: <%=rental.end_date %> </p>
+              <p>Location: <%= rental.beast.user.address %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
 
     </div>
   </div>
